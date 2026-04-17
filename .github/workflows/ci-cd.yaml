@@ -6,11 +6,8 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     steps:
-      name: Checkout to repo
       run: cd backend
 
-      name: Install dependencies
       run: npm i
 
-      name: Build the backend
       run: npm run build
