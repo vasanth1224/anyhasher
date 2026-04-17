@@ -6,8 +6,6 @@ jobs:
   compile:
     runs-on: ubuntu-latest
     steps:
-      run: cd backend
-
-      run: npm i
-
-      run: npm run build
+      - run: cd backend
+      - run: npm i
+      - run: npm run build
