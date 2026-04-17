@@ -104,4 +104,4 @@ jobs:
         run: cd backend && npm run build
 
       - name: Perform Analysis
-        run: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v4
