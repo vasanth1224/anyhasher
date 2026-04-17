@@ -77,3 +77,31 @@ jobs:
 
       - name: Run tests
         run: cd backend && npm t
+
+  static-analysis:
+    needs: [build]
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: javascript
+
+      - name: Setupu node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 16.x
+
+      - name: Install Dependencies
+        run: cd backend && npm i
+
+      - name: Build
+        run: cd backend && npm run build
+
+      - name: Perform Analysis
+        run: github/codeql-action/analyze@v4
